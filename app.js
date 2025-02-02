@@ -2,13 +2,24 @@
 
 let amigos = [];
 
+function percorrerLista() {
+    let lista = document.querySelector('#listaAmigos');
+    lista.innerHTML = '';
+
+    for (let i = 0; i < amigos.length; i++) {
+        let elemento = document.createElement('li');
+        elemento.textContent = amigos[i];
+        lista.appendChild(elemento);
+    }
+}
+
 function adicionarAmigo() {
     let campoNome = document.querySelector('input').value;
 
     if (campoNome != '') {
         amigos.push(campoNome)
         limparCampoNome();
-        console.log(amigos);     //verificando criação da lista
+        percorrerLista();
     } else {
         alert("Por favor, insira um nome válido.")
     }
